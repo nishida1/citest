@@ -44,23 +44,16 @@
 
       <!-- Sidebar Menu -->
       <ul class="sidebar-menu" data-widget="tree">
-        <li><a href="<?php echo base_url(); ?>"><i class="fa fa-home"></i> <span>Home</span></a></li>
-        <li><a href="<?php echo base_url(); ?>about"><i class="fa fa-pencil"></i> <span>About</span></a></li>
-        <li><a href="<?php echo base_url(); ?>posts"><i class="fa fa-list"></i> <span>Post</span></a></li>
-        <li class="active"><a href="#"><i class="fa fa-sticky-note-o"></i> <span>Note</span></a></li>
+        <li id="linkhome"><a href="<?php echo base_url(); ?>"><i class="fa fa-home"></i> <span>Home</span></a></li>
+        <li id="linkabout"><a href="<?php echo base_url(); ?>about"><i class="fa fa-pencil"></i> <span>About</span></a></li>
+        <li id="linkpost"><a href="<?php echo base_url(); ?>posts"><i class="fa fa-list"></i> <span>Post</span></a></li>
+        <li id="linknote"><a href="#"><i class="fa fa-sticky-note-o"></i> <span>Note</span></a></li>
       </ul>
     </section>
   </aside>
 
   <!-- Content Wrapper. Contains page content -->
   <div class="content-wrapper">
-    <!-- Content Header (Page header) -->
-    <section class="content-header">
-      <h1>
-        Title
-        <small>description</small>
-      </h1>
-    </section>
     
     <!-- Main content -->
     <section class="content container-fluid">

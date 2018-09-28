@@ -12,5 +12,11 @@
 <script src="<?php echo base_url(); ?>assets/bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
 <script src="<?php echo base_url(); ?>assets/dist/js/adminlte.min.js"></script>
 
+<script>
+jQuery(function ($){
+    $('#linkabout').addClass('active');
+});
+</script>
+
 </body>
 </html>
