@@ -1,5 +1,9 @@
 <h2><?= $title ?></h2>
-<p>ホーム画面</p>
+
+<p>CRUD app by using 
+<a href="https://www.codeigniter.com/" target="_blank">CodeIgniter<a> 
+and 
+<a href="https://adminlte.io/" target="_blank">AdminLTE 2<a></p>
 
 </section>
     <!-- /.content -->

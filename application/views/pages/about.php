@@ -1,5 +1,10 @@
 <h2><?= $title ?></h2>
-<p>about test</p>
+
+<p>
+<?php
+echo 'Current PHP version: ' . phpversion();
+?>
+</p>
 
 </section>
     <!-- /.content -->
