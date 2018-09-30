@@ -9,5 +9,17 @@
 			$query = $this->db->get('posts');
 			return $query->result_array();
 		}
+		
+		public function create_post(){
+			$slug = url_title($this->input->post('title'));
+
+			$data = array(
+				'title' => $this->input->post('title'),
+				'slug' => $slug,
+				'body' => $this->input->post('body')
+			);
+
+			return $this->db->insert('posts', $data);
+		}
 
 	}
