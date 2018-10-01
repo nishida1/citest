@@ -49,4 +49,25 @@
 			redirect('posts');
 		}
 
+		public function edit($id){
+
+			$data['post'] = $this->post_model->get_posts($id);
+
+			if(empty($data['post'])){
+				show_404();
+			}
+
+			$data['title'] = 'Edit Post';
+
+			$this->load->view('templates/header');
+			$this->load->view('posts/edit', $data);
+			$this->load->view('templates/footer');
+		}
+
+		public function update(){
+			$this->post_model->update_post();
+			$this->session->set_flashdata('post_updated', 'Your post has been updated');
+			redirect('posts');
+		}
+
 	}

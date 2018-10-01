@@ -32,6 +32,15 @@
 			return true;
 		}
 
+		public function update_post(){
 
+			$data = array(
+				'title' => $this->input->post('title'),
+				'body' => $this->input->post('body')
+			);
+
+			$this->db->where('id', $this->input->post('id'));
+			return $this->db->update('posts', $data);
+		}
 
 	}

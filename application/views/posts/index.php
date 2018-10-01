@@ -1,3 +1,8 @@
+
+<?php if($this->session->flashdata('post_updated')): ?>
+    <?php echo '<p class="alert alert-success">'.$this->session->flashdata('post_updated').'</p>'; ?>
+<?php endif; ?>
+
 <?php if($this->session->flashdata('post_deleted')): ?>
         <?php echo '<p class="alert alert-success">'.$this->session->flashdata('post_deleted').'</p>'; ?>
 <?php endif; ?>
