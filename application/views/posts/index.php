@@ -1,10 +1,32 @@
 
+<?php if($this->session->flashdata('post_created')): ?>
+    <?php 
+    echo '<div class="alert alert-success alert-dismissible">
+    <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+    <i class="icon fa fa-check"></i>'
+    .$this->session->flashdata('post_created').
+    '</div>
+    '; ?>
+<?php endif; ?>
+
 <?php if($this->session->flashdata('post_updated')): ?>
-    <?php echo '<p class="alert alert-success">'.$this->session->flashdata('post_updated').'</p>'; ?>
+    <?php 
+    echo '<div class="alert alert-info alert-dismissible">
+    <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+    <i class="icon fa fa-check"></i>'
+    .$this->session->flashdata('post_updated').
+    '</div>
+    '; ?>
 <?php endif; ?>
 
 <?php if($this->session->flashdata('post_deleted')): ?>
-        <?php echo '<p class="alert alert-success">'.$this->session->flashdata('post_deleted').'</p>'; ?>
+    <?php 
+    echo '<div class="alert alert-danger alert-dismissible">
+    <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+    <i class="icon fa fa-check"></i>'
+    .$this->session->flashdata('post_deleted').
+    '</div>
+    '; ?>
 <?php endif; ?>
 
 <h2><?= $title ?></h2>
