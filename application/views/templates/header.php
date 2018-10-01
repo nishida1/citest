@@ -45,9 +45,9 @@
       <!-- Sidebar Menu -->
       <ul class="sidebar-menu" data-widget="tree">
         <li id="linkhome"><a href="<?php echo base_url(); ?>"><i class="fa fa-home"></i> <span>Home</span></a></li>
-        <li id="linkabout"><a href="<?php echo base_url(); ?>about"><i class="fa fa-sticky-note-o"></i> <span>About</span></a></li>
         <li id="linkpost"><a href="<?php echo base_url(); ?>posts"><i class="fa fa-list"></i> <span>Post</span></a></li>
         <li id="linkcreate"><a href="<?php echo base_url(); ?>posts/create"><i class="fa fa-pencil"></i> <span>Create</span></a></li>
+        <li id="linkabout"><a href="<?php echo base_url(); ?>about"><i class="fa fa-sticky-note-o"></i> <span>About</span></a></li>
       </ul>
     </section>
   </aside>

@@ -30,13 +30,34 @@
 <?php endif; ?>
 
 <h2><?= $title ?></h2>
+
+
+
 <?php foreach($posts as $post) : ?>
-	<h3><?php echo $post['title']; ?></h3>
-	<small>Posted on: <?php echo $post['created_at']; ?></small><br>
-	<?php echo $post['body']; ?>
-    <br>
-    <p><a class="btn btn-default" 
-    href="<?php echo site_url('/posts/'.$post['id']); ?>">Edit/Delete</a></p>
+
+<div class="col-md-6">
+    <div class="box box-info">
+        <div class="box-header with-border">
+              <h3 class="box-title"><?php echo $post['title']; ?></h3>
+              <br><small class="text-muted">Posted on: <?php echo $post['created_at']; ?></small>
+            <div class="box-tools pull-right">
+                <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i>
+                </button>
+            </div>
+            <!-- /.box-tools -->
+        </div>
+        <!-- /.box-header -->
+        <div class="box-body">
+            <?php echo $post['body']; ?> <br><br>
+            <a class="btn btn-app" href="<?php echo site_url('/posts/'.$post['id']); ?>">
+                        <i class="fa fa-edit"></i> Edit/Delete
+            </a>
+        </div>
+        <!-- /.box-body -->
+    </div>
+    <!-- /.box -->
+</div>
+
 <?php endforeach; ?>
 
 </section>
