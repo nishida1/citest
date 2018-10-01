@@ -1,3 +1,7 @@
+<?php if($this->session->flashdata('post_deleted')): ?>
+        <?php echo '<p class="alert alert-success">'.$this->session->flashdata('post_deleted').'</p>'; ?>
+<?php endif; ?>
+
 <h2><?= $title ?></h2>
 <?php foreach($posts as $post) : ?>
 	<h3><?php echo $post['title']; ?></h3>

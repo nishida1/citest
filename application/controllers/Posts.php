@@ -39,4 +39,14 @@
 			$this->load->view('templates/footer');
 		}
 
+		public function delete($id){
+
+			$this->post_model->delete_post($id);
+
+			// Set message
+			$this->session->set_flashdata('post_deleted', 'Your post has been deleted');
+
+			redirect('posts');
+		}
+
 	}
