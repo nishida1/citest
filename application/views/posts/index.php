@@ -1,9 +1,20 @@
+
+<?php if($this->session->flashdata('post_updated')): ?>
+    <?php echo '<p class="alert alert-success">'.$this->session->flashdata('post_updated').'</p>'; ?>
+<?php endif; ?>
+
+<?php if($this->session->flashdata('post_deleted')): ?>
+        <?php echo '<p class="alert alert-success">'.$this->session->flashdata('post_deleted').'</p>'; ?>
+<?php endif; ?>
+
 <h2><?= $title ?></h2>
 <?php foreach($posts as $post) : ?>
 	<h3><?php echo $post['title']; ?></h3>
 	<small>Posted on: <?php echo $post['created_at']; ?></small><br>
 	<?php echo $post['body']; ?>
-	<br>
+    <br>
+    <p><a class="btn btn-default" 
+    href="<?php echo site_url('/posts/'.$post['id']); ?>">Edit/Delete</a></p>
 <?php endforeach; ?>
 
 </section>
