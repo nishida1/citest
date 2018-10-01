@@ -2,7 +2,7 @@
 
   <!-- Main Footer -->
   <footer class="main-footer">
-    <strong>Copyright &copy; 2018 Company</strong> All rights reserved.
+    Copyright &copy; 2018. All rights reserved.
   </footer>
 
 

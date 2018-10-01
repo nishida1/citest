@@ -2,7 +2,7 @@
 
 <p>
 <?php
-echo 'Current PHP version: ' . phpversion();
+echo 'PHP version: ' . phpversion();
 ?>
 </p>
 

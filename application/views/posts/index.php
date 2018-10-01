@@ -31,8 +31,6 @@
 
 <h2><?= $title ?></h2>
 
-
-
 <?php foreach($posts as $post) : ?>
 
 <div class="col-md-6">
@@ -50,7 +48,7 @@
         <div class="box-body">
             <?php echo $post['body']; ?> <br><br>
             <a class="btn btn-app" href="<?php echo site_url('/posts/'.$post['id']); ?>">
-                        <i class="fa fa-edit"></i> Edit/Delete
+                        <i class="fa fa-edit"></i> 編集
             </a>
         </div>
         <!-- /.box-body -->
