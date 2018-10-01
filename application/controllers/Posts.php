@@ -24,4 +24,19 @@
 				redirect('posts');
 			}
 		}
+
+		public function view($id = NULL){
+			$data['post'] = $this->post_model->get_posts($id);
+
+			if(empty($data['post'])){
+				show_404();
+			}
+
+			$data['title'] = $data['post']['title'];
+
+			$this->load->view('templates/header');
+			$this->load->view('posts/view', $data);
+			$this->load->view('templates/footer');
+		}
+
 	}
