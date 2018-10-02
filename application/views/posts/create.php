@@ -5,30 +5,13 @@
 <?php echo form_open('posts/create'); ?>
 
   <div class="form-group" id="titlegr">
-    
-      <div id="titleorig" style="display:inline">
-        <label>タイトル</label>
-      </div>
-
-      <div id="titleok" style="display:none">
-        <label>タイトル
-          <i class="fa fa-check"></i>OK
-        </label>
-      </div>
-
-      <div id="titleng" style="display:none">
-        <label>タイトル
-          &nbsp;15文字以内で入力してください
-        </label>
-      </div>
-    
+    <label id="titleword">タイトル</label>
     <input type="text" id="titleinput" class="form-control" name="title" placeholder="タイトルを入力してください...">
-    　
   </div>
 
-  <div class="form-group">
-    <label>コメント</label>
-    <textarea class="form-control" id="body" name="body" rows="6" placeholder="コメントを入力してください..."></textarea>
+  <div class="form-group" id="bodygr">
+    <label id="bodyword">コメント</label>
+    <textarea class="form-control" id="bodyinput" name="body" rows="6" placeholder="コメントを入力してください..."></textarea>
   </div>
 
   <button type="submit" class="btn btn-app">
@@ -52,21 +35,33 @@ jQuery(function ($){
       if (textlength === 0){
         $('#titlegr').removeClass();
         $('#titlegr').addClass('form-group');
-        document.getElementById("titleok").style.display = 'none';
-        document.getElementById("titleng").style.display = 'none';
-        document.getElementById("titleorig").style.display = 'inline';
+        document.getElementById('titleword').innerHTML = `タイトル`;
       } else if (textlength < 15) {
         $('#titlegr').removeClass();
         $('#titlegr').addClass('form-group has-success');
-        document.getElementById("titleorig").style.display = 'none';
-        document.getElementById("titleng").style.display = 'none';
-        document.getElementById("titleok").style.display = 'inline';
+        document.getElementById('titleword').innerHTML = `タイトル<i class="fa fa-check"></i>OK`;
       } else {
         $('#titlegr').removeClass();
         $('#titlegr').addClass('form-group has-error');
-        document.getElementById("titleorig").style.display = 'none';
-        document.getElementById("titleok").style.display = 'none';
-        document.getElementById("titleng").style.display = 'inline';
+        document.getElementById('titleword').innerHTML = `タイトル&nbsp;15文字以内で入力してください`;
+      }
+    });
+
+    //入力チェック（コメント）
+    $('#bodyinput').keyup(function() {
+      var textlength = $(this).val().length;
+      if (textlength === 0){
+        $('#bodygr').removeClass();
+        $('#bodygr').addClass('form-group');
+        document.getElementById('bodyword').innerHTML = `コメント`;
+      } else if (textlength < 500) {
+        $('#bodygr').removeClass();
+        $('#bodygr').addClass('form-group has-success');
+        document.getElementById('bodyword').innerHTML = `コメント<i class="fa fa-check"></i>OK`;
+      } else {
+        $('#bodygr').removeClass();
+        $('#bodygr').addClass('form-group has-error');
+        document.getElementById('bodyword').innerHTML = `コメント&nbsp;500文字以内で入力してください`;
       }
     });
 
