@@ -34,8 +34,21 @@ jQuery(function ($){
 
     //入力チェック（タイトル）
     $('#titleinput').keyup(function() {
+      titleinputchk();
+      btnchk();
+    });
 
-      var textlength = $('#titleinput').val().length;
+    //入力チェック（コメント）
+    $('#bodyinput').keyup(function() {
+      bodyinputchk();
+      btnchk();
+    });
+
+
+});
+
+function titleinputchk(){
+  var textlength = $('#titleinput').val().length;
       if (textlength === 0){
         $('#titlegr').removeClass();
         $('#titlegr').addClass('form-group');
@@ -52,15 +65,10 @@ jQuery(function ($){
         document.getElementById('titleword').innerHTML = `タイトル&nbsp;15文字以内で入力してください`;
         titlechk = false;
       }
+}
 
-      btnchk();
-
-    });
-
-    //入力チェック（コメント）
-    $('#bodyinput').keyup(function() {
-
-      var textlength = $(this).val().length;
+function bodyinputchk(){
+  var textlength = $('#bodyinput').val().length;
       if (textlength === 0){
         $('#bodygr').removeClass();
         $('#bodygr').addClass('form-group');
@@ -77,13 +85,8 @@ jQuery(function ($){
         document.getElementById('bodyword').innerHTML = `コメント&nbsp;500文字以内で入力してください`;
         bodychk = false;
       }
+}
 
-      btnchk();
-
-    });
-
-
-});
 
 function btnchk(){
   if(bodychk===true && titlechk===true){
@@ -96,7 +99,5 @@ function btnchk(){
         $('#submitbtn').attr('disabled', true);
       }
 }
-
-
 
 </script>
