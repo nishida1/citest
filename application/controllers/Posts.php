@@ -10,7 +10,7 @@
 			$this->load->view('templates/footer');
 		}
 		public function create(){
-			$data['title'] = 'Create Post';
+			$data['title'] = 'Create';
 
 			$this->form_validation->set_rules('title', 'Title', 'required');
 			$this->form_validation->set_rules('body', 'Body', 'required');
