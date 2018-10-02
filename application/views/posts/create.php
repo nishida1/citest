@@ -24,17 +24,18 @@
 
 <script src="<?php echo base_url(); ?>assets/bower_components/jquery/dist/jquery.min.js"></script>
 <script>
+
+var titlechk = new Boolean(false);
+var bodychk = new Boolean(false);
+
 jQuery(function ($){
     $('#linkcreate').addClass('active');
     $('#submitbtn').attr('disabled', true);
 
-    var titlechk = new Boolean(false);
-    var bodychk = new Boolean(false);
-
     //入力チェック（タイトル）
     $('#titleinput').keyup(function() {
 
-      var textlength = $(this).val().length;
+      var textlength = $('#titleinput').val().length;
       if (textlength === 0){
         $('#titlegr').removeClass();
         $('#titlegr').addClass('form-group');
@@ -52,15 +53,7 @@ jQuery(function ($){
         titlechk = false;
       }
 
-      if(bodychk===true && titlechk===true){
-        $('#submitbtn').removeClass();
-        $('#submitbtn').addClass('btn btn-success btn-lg');
-        $('#submitbtn').attr('disabled', false);
-      }else{
-        $('#submitbtn').removeClass();
-        $('#submitbtn').addClass('btn btn-success btn-lg disabled');
-        $('#submitbtn').attr('disabled', true);
-      }
+      btnchk();
 
     });
 
@@ -85,7 +78,15 @@ jQuery(function ($){
         bodychk = false;
       }
 
-      if(bodychk===true && titlechk===true){
+      btnchk();
+
+    });
+
+
+});
+
+function btnchk(){
+  if(bodychk===true && titlechk===true){
         $('#submitbtn').removeClass();
         $('#submitbtn').addClass('btn btn-success btn-lg');
         $('#submitbtn').attr('disabled', false);
@@ -94,12 +95,7 @@ jQuery(function ($){
         $('#submitbtn').addClass('btn btn-success btn-lg disabled');
         $('#submitbtn').attr('disabled', true);
       }
-
-    });
-
-
-});
-
+}
 
 
 
