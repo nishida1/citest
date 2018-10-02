@@ -12,7 +12,7 @@
     <textarea class="form-control" id="bodyinput" name="body" rows="6" placeholder="コメントを入力してください..."></textarea>
   </div><br>
 
-  <button type="submit" class="btn btn-success btn-lg disabled" id="submitbtn">
+  <button type="submit" class="btn btn-success btn-lg disabled btn-block" id="submitbtn">
     <i class="fa fa-save"></i>&nbsp;&nbsp;保&nbsp;存
   </button>
 </form>
@@ -91,11 +91,11 @@ function bodyinputchk(){
 function btnchk(){
   if(bodychk===true && titlechk===true){
         $('#submitbtn').removeClass();
-        $('#submitbtn').addClass('btn btn-success btn-lg');
+        $('#submitbtn').addClass('btn btn-success btn-lg btn-block');
         $('#submitbtn').attr('disabled', false);
       }else{
         $('#submitbtn').removeClass();
-        $('#submitbtn').addClass('btn btn-success btn-lg disabled');
+        $('#submitbtn').addClass('btn btn-success btn-lg disabled btn-block');
         $('#submitbtn').attr('disabled', true);
       }
 }
