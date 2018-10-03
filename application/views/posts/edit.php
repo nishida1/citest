@@ -1,20 +1,24 @@
 <h2><?= $title; ?></h2>
 
-<?php echo validation_errors(); ?>
-
 <?php echo form_open('posts/update'); ?>
 	<input type="hidden" name="id" value="<?php echo $post['id']; ?>">
-  <div class="form-group">
-    <label>Title</label>
-    <input type="text" class="form-control" name="title" placeholder="Add Title" value="<?php echo $post['title']; ?>">
+  <div class="form-group" id="titlegr">
+    <label id="titleword">タイトル</label>
+    <input type="text" id="titleinput" class="form-control" name="title" 
+      placeholder="タイトルを入力してください..." value="<?php echo $post['title']; ?>">
   </div>
-  <div class="form-group">
-    <label>Body</label>
-    <textarea id="editor1" class="form-control" name="body" placeholder="Add Body"><?php echo $post['body']; ?></textarea>
-  </div>
-  
-  <button type="submit" class="btn btn-default">Submit</button>
+
+  <div class="form-group" id="bodygr">
+    <label id="bodyword">コメント</label>
+    <textarea class="form-control" id="bodyinput" name="body" rows="6" 
+      placeholder="コメントを入力してください..."><?php echo $post['body']; ?></textarea>
+  </div><br>
+
+  <button type="submit" class="btn btn-lg disabled btn-block" id="submitbtn">
+    <i class="fa fa-save"></i>&nbsp;&nbsp;保&nbsp;存
+  </button>
 </form>
+
 
 </section>
     <!-- /.content -->
@@ -25,5 +29,77 @@
 <script>
 jQuery(function ($){
     $('#linkpost').addClass('active');
+    $('#submitbtn').attr('disabled', true);
+    titleinputchk();
+    bodyinputchk();
+    btnchk();
+
+    //入力チェック（タイトル）
+    $('#titleinput').keyup(function() {
+      titleinputchk();
+      btnchk();
+    });
+
+    //入力チェック（コメント）
+    $('#bodyinput').keyup(function() {
+      bodyinputchk();
+      btnchk();
+    });
+
+
 });
+
+function titleinputchk(){
+  var textlength = $('#titleinput').val().length;
+      if (textlength === 0){
+        $('#titlegr').removeClass();
+        $('#titlegr').addClass('form-group');
+        document.getElementById('titleword').innerHTML = `タイトル`;
+        titlechk = false;
+      } else if (textlength < 15) {
+        $('#titlegr').removeClass();
+        $('#titlegr').addClass('form-group has-success');
+        document.getElementById('titleword').innerHTML = `タイトル<i class="fa fa-check"></i>OK`;
+        titlechk = true;
+      } else {
+        $('#titlegr').removeClass();
+        $('#titlegr').addClass('form-group has-error');
+        document.getElementById('titleword').innerHTML = `タイトル&nbsp;15文字以内で入力してください`;
+        titlechk = false;
+      }
+}
+
+function bodyinputchk(){
+  var textlength = $('#bodyinput').val().length;
+      if (textlength === 0){
+        $('#bodygr').removeClass();
+        $('#bodygr').addClass('form-group');
+        document.getElementById('bodyword').innerHTML = `コメント`;
+        bodychk = false;
+      } else if (textlength < 500) {
+        $('#bodygr').removeClass();
+        $('#bodygr').addClass('form-group has-success');
+        document.getElementById('bodyword').innerHTML = `コメント<i class="fa fa-check"></i>OK`;
+        bodychk = true;
+      } else {
+        $('#bodygr').removeClass();
+        $('#bodygr').addClass('form-group has-error');
+        document.getElementById('bodyword').innerHTML = `コメント&nbsp;500文字以内で入力してください`;
+        bodychk = false;
+      }
+}
+
+
+function btnchk(){
+  if(bodychk===true && titlechk===true){
+        $('#submitbtn').removeClass();
+        $('#submitbtn').addClass('btn btn-success btn-lg btn-block');
+        $('#submitbtn').attr('disabled', false);
+      }else{
+        $('#submitbtn').removeClass();
+        $('#submitbtn').addClass('btn btn-lg disabled btn-block');
+        $('#submitbtn').attr('disabled', true);
+      }
+}
+
 </script>

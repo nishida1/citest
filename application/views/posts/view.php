@@ -1,15 +1,38 @@
-<h2><?php echo $post['title']; ?></h2>
-<small>Posted on: <?php echo $post['created_at']; ?></small><br>
-<div>
-	<?php echo $post['body']; ?>
+
+<div class="col-md-12">
+    <div class="box box-info">
+        <div class="box-header with-border">
+              <h3 class="box-title"><?php echo $post['title']; ?></h3>
+              <br><small class="text-muted">Posted on: <?php echo $post['created_at']; ?></small>
+            <div class="box-tools pull-right">
+                <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i>
+                </button>
+            </div>
+            <!-- /.box-tools -->
+        </div>
+        <!-- /.box-header -->
+        <div class="box-body">
+            <?php echo $post['body']; ?> 
+        </div>
+        <!-- /.box-body -->
+    </div>
+    <!-- /.box -->
 </div>
+
+
+  <button type="submit" class="btn btn-lg btn-block btn-info" 
+    onclick="location.href='<?php echo base_url(); ?>posts/edit/<?php echo $post['id']; ?>'">
+    <i class="fa fa-edit"></i>&nbsp;&nbsp;編&nbsp;集
+  </button>
 
 <br>
 
-<a class="btn btn-default pull-left" href="<?php echo base_url(); ?>posts/edit/<?php echo $post['id']; ?>">Edit</a>
 <?php echo form_open('/posts/delete/'.$post['id']); ?>
-<input type="submit" value="Delete" class="btn btn-danger">
+  <button type="submit" class="btn btn-lg btn-block btn-danger">
+    <i class="fa fa-trash-o"></i>&nbsp;&nbsp;削&nbsp;除
+  </button>
 </form>
+
 
 </section>
     <!-- /.content -->
