@@ -20,7 +20,7 @@
 </div>
 
 
-  <button type="submit" class="btn btn-lg btn-block" 
+  <button type="submit" class="btn btn-lg btn-block btn-success" 
     onclick="location.href='<?php echo base_url(); ?>posts/edit/<?php echo $post['id']; ?>'">
     <i class="fa fa-edit"></i>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;編&nbsp;&nbsp;&nbsp;集
   </button>
