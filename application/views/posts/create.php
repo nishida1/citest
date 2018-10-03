@@ -13,7 +13,7 @@
   </div><br>
 
   <button type="submit" class="btn btn-lg disabled btn-block" id="submitbtn">
-    <i class="fa fa-save"></i>&nbsp;&nbsp;保&nbsp;存
+    <i class="fa fa-save"></i>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;保&nbsp;&nbsp;&nbsp;存
   </button>
 </form>
 
@@ -57,7 +57,7 @@ function titleinputchk(){
       } else if (textlength < 15) {
         $('#titlegr').removeClass();
         $('#titlegr').addClass('form-group has-success');
-        document.getElementById('titleword').innerHTML = `タイトル<i class="fa fa-check"></i>OK`;
+        document.getElementById('titleword').innerHTML = `タイトル&nbsp;<i class="fa fa-check"></i>OK`;
         titlechk = true;
       } else {
         $('#titlegr').removeClass();
@@ -77,7 +77,7 @@ function bodyinputchk(){
       } else if (textlength < 500) {
         $('#bodygr').removeClass();
         $('#bodygr').addClass('form-group has-success');
-        document.getElementById('bodyword').innerHTML = `コメント<i class="fa fa-check"></i>OK`;
+        document.getElementById('bodyword').innerHTML = `コメント&nbsp;<i class="fa fa-check"></i>OK`;
         bodychk = true;
       } else {
         $('#bodygr').removeClass();

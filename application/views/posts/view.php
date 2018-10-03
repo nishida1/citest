@@ -20,16 +20,16 @@
 </div>
 
 
-  <button type="submit" class="btn btn-lg btn-block btn-info" 
+  <button type="submit" class="btn btn-lg btn-block" 
     onclick="location.href='<?php echo base_url(); ?>posts/edit/<?php echo $post['id']; ?>'">
-    <i class="fa fa-edit"></i>&nbsp;&nbsp;編&nbsp;集
+    <i class="fa fa-edit"></i>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;編&nbsp;&nbsp;&nbsp;集
   </button>
 
 <br>
 
 <?php echo form_open('/posts/delete/'.$post['id']); ?>
   <button type="submit" class="btn btn-lg btn-block btn-danger">
-    <i class="fa fa-trash-o"></i>&nbsp;&nbsp;削&nbsp;除
+    <i class="fa fa-trash-o"></i>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;削&nbsp;&nbsp;&nbsp;除
   </button>
 </form>
 

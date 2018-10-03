@@ -62,7 +62,7 @@
 				show_404();
 			}
 
-			$data['title'] = 'Edit Post';
+			$data['title'] = 'Edit';
 
 			$this->load->view('templates/header');
 			$this->load->view('posts/edit', $data);
