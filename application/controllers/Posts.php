@@ -1,7 +1,7 @@
 <?php
 	class Posts extends CI_Controller{
 		public function index(){		
-			$data['title'] = 'Latest Posts';
+			$data['title'] = 'Post';
 
 			$data['posts'] = $this->post_model->get_posts();
 
@@ -10,7 +10,7 @@
 			$this->load->view('templates/footer');
 		}
 		public function create(){
-			$data['title'] = 'Create Post';
+			$data['title'] = 'Create';
 
 			$this->form_validation->set_rules('title', 'Title', 'required');
 			$this->form_validation->set_rules('body', 'Body', 'required');
@@ -21,6 +21,10 @@
 				$this->load->view('templates/footer');
 			} else {
 				$this->post_model->create_post();
+
+				// Set message
+				$this->session->set_flashdata('post_created', '登録が完了しました');
+
 				redirect('posts');
 			}
 		}
@@ -41,10 +45,11 @@
 
 		public function delete($id){
 
+			$data['post'] = $this->post_model->get_posts($id);
 			$this->post_model->delete_post($id);
 
 			// Set message
-			$this->session->set_flashdata('post_deleted', 'Your post has been deleted');
+			$this->session->set_flashdata('post_deleted', '削除が完了しました');
 
 			redirect('posts');
 		}
@@ -57,7 +62,7 @@
 				show_404();
 			}
 
-			$data['title'] = 'Edit Post';
+			$data['title'] = 'Edit';
 
 			$this->load->view('templates/header');
 			$this->load->view('posts/edit', $data);
@@ -66,7 +71,7 @@
 
 		public function update(){
 			$this->post_model->update_post();
-			$this->session->set_flashdata('post_updated', 'Your post has been updated');
+			$this->session->set_flashdata('post_updated', '更新が完了しました');
 			redirect('posts');
 		}
 

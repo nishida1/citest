@@ -1,6 +1,6 @@
 <h2><?= $title ?></h2>
 
-<p>CRUD app by using 
+<p>CRUD app using 
 <a href="https://www.codeigniter.com/" target="_blank">CodeIgniter<a> 
 and 
 <a href="https://adminlte.io/" target="_blank">AdminLTE 2<a></p>
